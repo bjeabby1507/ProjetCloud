@@ -19,7 +19,10 @@ def getdata(url, headers):
     try:
         response = requests.request("GET", url, headers=headers, data=payload)
         print (response.text)
-        time.sleep(3)
+        response_json = json.loads(response.text)
+        print(response_json)
+        print (type(response_json))
+        time.sleep(5)
         getdata(url, headers)
     except:
         print ("an error as occured")
